@@ -14,7 +14,7 @@ here = os.getcwd()
 # the minimum Python requirement in the metadata.
 if sys.version_info < (3, 6):
     error = """
-translater 1.1+ does not support Python 2.x, 3.0, 3.1, 3.2, or 3.3.
+translater 1.0+ does not support Python 2.x, 3.0, 3.1, 3.2, or 3.3.
 Python 3.6 and above is required. This may be due to an out of date pip.
 Make sure you have pip >= 9.0.1.
 """
