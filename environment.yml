@@ -1,22 +1,22 @@
-name: translator
+name: translater
 channels:
   - defaults
   - conda-forge
 dependencies:
   - shapely
-  - networkx
-  - six
+#  - networkx
+#  - six
   - matplotlib>=2.1
   - requests>=2.18
-  - pycountry
-  - scikit-learn
+#  - pycountry
+#  - scikit-learn
   - scipy
   - pandas>=0.24
   - numpy>=1.17
   - tqdm
   - tabulate
   - path.py
-  - pyomo
+#  - pyomo
   - pint
   - click
   - outdated

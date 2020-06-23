@@ -29,9 +29,9 @@ jobs:
       script: echo "Deploying to PyPi and GitHub releases ..."
       deploy:
       - provider: pypi
-        user: louisleroy5
+        user: __token__
         password:
-          secure: q9/Zn6gDGvqNgteVI9XINg7R76uSsZDDDRjCNv9HR3660EdaHyS6lVCZwMSSR6DgWE623R8HfLaEbc8Y1r+jluzy59nOuYVB8n6MfBweWHT9Pts22RKzH7MPz2HNct+C0PwM2CRLJjq1fXql6qtWq8DiGYk7B9rk+Z3C+wamOj8IOFfq6uQC61LQWDKv4nD1feDisdFdR3JAzx23HlutgyQxltPjltYz3v1elQFQPRm3ggISSntkz3LDsw9dHiQeqgsiEU6sMCCQpqa+IGGOIqppazx+kh2+muOF+VQTvMx5MHdx1YubPK0+RStIRrkp8j7hA7LHFxFRWnRIiRDHWXAJGanrYL3ss62tZJj3PPQ+DT52HVhLPswN6eoof1ahD5SBQBQrnZdtxSMgzEfegtZMGLCrO7cllRjV6jCuS28FMQWMxwdO3qTDcp8c9Cf9lIdL4seMrFAneVtmcCpW0XfnprTW9Req33PePo7h0bSSvBhgZv2kkiAy6g5MndOmi+Msavz9sPTyo7zySEx3k7e+0+GMWmJYg5+rB4xWpvbIFntZeN5M4CfG9QDX3cz0GZ5znxc8hurbqsNq9mH95fPorZ8UDjXTyw7LawluiQA1Pvi6sZ7tXzC/lSr1VM7udX3TH7QEVOsAevf0ZbkDRAN8NOs6ywbQ+EmHZXekNnc=
+          secure: Ys6dmv5j3DG8jelwyqkczfnr87kihTgV0bnNVnGrag/7Pnobory1L0zh9pUc02gOiZzNrPFMb0hBQ/kEfYwKVFobRTwsbOpPAJQD+doIaf2KTQ42yUK2zPW0SqpwJMcGF1BfkgRh9J1omsWlfU+D7Xf5q47ksyQtO7A8GGFyc2mk2/4uqH4f8MQLWpU8zyUmgCTbI7RplCQsaa3tySwi7Y8bBEZwWV5jleohOz0tOPc74dWRJi4r0maeCbWa64hp1W7lQq2ZjIc//66a9RnauIdNd9Z10APbIcWQnyB30j6tZKIbkgouzxZ3IrBlby6raxXbpfviH1hyXII/Ppfv65jJX2VPX/VU0tPqto/DTR8YZ1IbUrAD+Zndxt/ZsvsxhHw610/GKDrQBJkcEiVsKhzptYWrElvNTd2enJkFbIrb2r1u2+YzktsHJd9sEMlAqP72JHRdrvT3cPD1VRmqr61xRJBvnB6rJwwctEHtVKwunhTWEW+NA0Sdp/Qa8Ak1vGl1LBlqAbcDNdizt4DC+x4N6BtjAtrNrcw3kj3m8fIhaXNQeUapwOHMRVSzAtkBDGbU6jbkgTVVMmXNEuoAvReXAIFJe+tn8kemRMlY94vpRotfBSUOQEVETL0luMgIL8Zyl2FHLFxruDm9Ea1wJAUOldStbdVr/AvfoAXjM9k=
         on:
           distributions: sdist bdist_wheel
           repo: louisleroy5/translater
