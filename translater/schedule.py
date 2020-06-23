@@ -2,7 +2,7 @@
 # Module: schedule.py
 # Description: Functions for handling conversion of EnergyPlus schedule objects
 # License: MIT, see full license in LICENSE.txt
-# Web: https://github.com/samuelduchesne/translator
+# Web: https://github.com/samuelduchesne/translater
 ################################################################################
 
 import functools
@@ -16,8 +16,8 @@ import pandas as pd
 from eppy.bunch_subclass import EpBunch
 from path import Path
 
-import translator
-from translator import log, settings
+import translater
+from translater import log, settings
 
 
 class Schedule(object):
@@ -131,7 +131,7 @@ class Schedule(object):
             from eppy.easyopen import easyopen
 
             idf_scratch = easyopen(file.name)
-            idf_scratch.__class__ = translator.IDF
+            idf_scratch.__class__ = translater.IDF
 
             idf_scratch.add_object(
                 ep_object="Schedule:Constant".upper(),
@@ -833,7 +833,7 @@ class Schedule(object):
             hourly_values = self.get_file_ep_schedule_values(sched_epbunch)
         else:
             log(
-                "translator does not currently support schedules of type "
+                "translater does not currently support schedules of type "
                 '"{}"'.format(sch_type),
                 lg.WARNING,
             )
@@ -871,12 +871,12 @@ class Schedule(object):
         count_day = 0
         for unique_day in unique_days:
             name = "d_" + self.Name + "_" + "%03d" % count_day
-            name, count_day = translator.check_unique_name(
-                "d", count_day, name, translator.settings.unique_schedules, suffix=True
+            name, count_day = translater.check_unique_name(
+                "d", count_day, name, translater.settings.unique_schedules, suffix=True
             )
             dict_day[name] = unique_day
 
-            translator.settings.unique_schedules.append(name)
+            translater.settings.unique_schedules.append(name)
 
             # Create idf_objects for schedule:day:hourly
             ep_day = self.idf.add_object(
@@ -906,14 +906,14 @@ class Schedule(object):
         count_week = 0
         for unique_week in unique_weeks:
             week_id = "w_" + self.Name + "_" + "%03d" % count_week
-            week_id, count_week = translator.check_unique_name(
+            week_id, count_week = translater.check_unique_name(
                 "w",
                 count_week,
                 week_id,
-                translator.settings.unique_schedules,
+                translater.settings.unique_schedules,
                 suffix=True,
             )
-            translator.settings.unique_schedules.append(week_id)
+            translater.settings.unique_schedules.append(week_id)
 
             dict_week[week_id] = {}
             for i in list(range(0, 7)):
@@ -1165,7 +1165,7 @@ class Schedule(object):
             return None
         else:
             raise NotImplementedError(
-                "translator does not yet support The " 'Field_set "{}"'.format(field)
+                "translater does not yet support The " 'Field_set "{}"'.format(field)
             )
 
     def __len__(self):

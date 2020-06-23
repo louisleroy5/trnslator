@@ -1,18 +1,18 @@
 ################################################################################
 # Module: __init__.py
-# Description: translator: Convert IDF file (EnergyPlus) to BUI file (TRNBuild)
+# Description: translater: Convert IDF file (EnergyPlus) to BUI file (TRNBuild)
 # License: -
-# Web: https://github.com/louisleroy5/translator
+# Web: https://github.com/louisleroy5/translater
 ################################################################################
 
 # Version of the package
 __version__ = "1.0.0"
 
-# warn if a newer version of translator is available
+# warn if a newer version of translater is available
 from outdated import warn_if_outdated
 from .utils import warn_if_not_compatible
 
-# warn_if_outdated("translator", __version__)
+# warn_if_outdated("translater", __version__)
 warn_if_not_compatible()
 
 from .utils import *

@@ -14,7 +14,7 @@ here = os.getcwd()
 # the minimum Python requirement in the metadata.
 if sys.version_info < (3, 6):
     error = """
-translator 1.1+ does not support Python 2.x, 3.0, 3.1, 3.2, or 3.3.
+translater 1.1+ does not support Python 2.x, 3.0, 3.1, 3.2, or 3.3.
 Python 3.6 and above is required. This may be due to an out of date pip.
 Make sure you have pip >= 9.0.1.
 """
@@ -47,18 +47,18 @@ with open(path.join(here, "requirements-dev.txt")) as f:
 dev_requires = [r.strip() for r in requirements_lines]
 
 setup(
-    name="translator",
-    version=find_version("translator", "__init__.py"),
-    packages=["translator"],
+    name="translater",
+    version=find_version("translater", "__init__.py"),
+    packages=["translater"],
     package_data={
-        "translator": [
-            "translator/ressources/originBUISketchUp.idf",
-            "translator/ressources/W74-lib.dat",
-            "translator/ressources/NewFileTemplate.d18",
+        "translater": [
+            "translater/ressources/originBUISketchUp.idf",
+            "translater/ressources/W74-lib.dat",
+            "translater/ressources/NewFileTemplate.d18",
         ]
     },
     include_package_data=True,
-    url="https://github.com/louisleroy5/translator",
+    url="https://github.com/louisleroy5/translater",
     license="-",
     author="Louis Leroy",
     author_email="louis.leroy@polymtl.ca",
@@ -71,6 +71,6 @@ setup(
     test_suite="tests",
     entry_points="""
         [console_scripts]
-        translator=translator.cli:cli
+        translater=translater.cli:cli
     """,
 )

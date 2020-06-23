@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 from path import Path
 
-from translator import log, EnergySeries
+from translater import log, EnergySeries
 
 
 class ReportData(pd.DataFrame):

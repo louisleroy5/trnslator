@@ -3,7 +3,7 @@
 # Description: Various functions for processing of EnergyPlus models and
 #              retrieving results in different forms
 # License: MIT, see full license in LICENSE.txt
-# Web: https://github.com/samuelduchesne/translator
+# Web: https://github.com/samuelduchesne/translater
 ################################################################################
 import datetime
 import glob
@@ -31,9 +31,9 @@ from eppy.bunch_subclass import EpBunch
 from eppy.easyopen import getiddfile
 from path import Path, TempDir
 
-import translator
-import translator.settings
-from translator import (
+import translater
+import translater.settings
+from translater import (
     log,
     settings,
     EnergyPlusProcessError,
@@ -44,7 +44,7 @@ from translator import (
     EnergyPlusVersionError,
     get_eplus_dirs,
 )
-from translator.utils import _unpack_tuple
+from translater.utils import _unpack_tuple
 
 
 class IDF(geomeppy.IDF):
@@ -397,7 +397,7 @@ class IDF(geomeppy.IDF):
         return profile
 
     def run_eplus(self, **kwargs):
-        """wrapper around the :meth:`translator.idfclass.run_eplus` method.
+        """wrapper around the :meth:`translater.idfclass.run_eplus` method.
 
         If weather file is defined in the IDF object, then this field is
         optional. By default, will load the sql in self.sql.
@@ -746,7 +746,7 @@ def load_idf(
     weather_file=None,
     ep_version=None,
 ):
-    """Returns a parsed IDF object from file. If *translator.settings.use_cache*
+    """Returns a parsed IDF object from file. If *translater.settings.use_cache*
     is true, then the idf object is loaded from cache.
 
     Args:
@@ -756,7 +756,7 @@ def load_idf(
             the default EnergyPlus install location.
         output_folder (Path, optional): Either the absolute or relative path of
             the output folder. Specify if the cache location is different than
-            translator.settings.cache_folder.
+            translater.settings.cache_folder.
         include (str, optional): List input files that need to be copied to the
             simulation directory. Those can be, for example, schedule files read
             by the idf file. If a string is provided, it should be in a glob
@@ -1708,7 +1708,7 @@ def run_eplus(
         ep_version = ep_version.replace(".", "-")
     else:
         # if no version is specified, take the package default version
-        ep_version = translator.settings.ep_version
+        ep_version = translater.settings.ep_version
     eplus_file = idf_version_updater(
         upgraded_file(eplus_file, output_directory),
         to_version=ep_version,
@@ -2438,7 +2438,7 @@ def idf_version_updater(idf_file, to_version=None, out_dir=None, simulname=None)
                             stderr="The specified EnergyPlus version (v{}) does not have"
                             " the required transition program '{}' in the "
                             "PreProcess folder. See the documentation "
-                            "(translator.readthedocs.io/troubleshooting.html#missing-transition-programs) "
+                            "(translater.readthedocs.io/troubleshooting.html#missing-transition-programs) "
                             "to solve this issue".format(to_version, trans_exec[trans]),
                             idf=idf_file.basename(),
                         )

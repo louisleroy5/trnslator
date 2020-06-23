@@ -2,7 +2,7 @@
 # Module: trnsys.py
 # Description: Convert EnergyPlus models to TrnBuild models
 # License: MIT, see full license in LICENSE.txt
-# Web: https://github.com/samuelduchesne/translator
+# Web: https://github.com/samuelduchesne/translater
 ################################################################################
 
 import io
@@ -21,7 +21,7 @@ from geomeppy.geom.polygons import Polygon3D
 from path import Path
 from tqdm import tqdm
 
-from translator import (
+from translater import (
     log,
     settings,
     Schedule,
@@ -750,7 +750,7 @@ def _remove_low_conductivity(constructions, idf, materials):
 
     Args:
         constructions (Idf_MSequence): CONSTRUCTION object from the IDF
-        idf (translator.idfclass.IDF object at 0x11e3d3208): the IDf object
+        idf (translater.idfclass.IDF object at 0x11e3d3208): the IDf object
         materials (Idf_MSequence): MATERIAL object from the IDF
 
     Returns:
@@ -863,7 +863,7 @@ def get_idf_objects(idf):
     """Gets idf objects
 
     Args:
-        idf (translator.idfclass.IDF object at 0x11e3d3208): the IDf object
+        idf (translater.idfclass.IDF object at 0x11e3d3208): the IDf object
 
     Returns:
         materials (Idf_MSequence): MATERIAL object from the IDF
@@ -929,7 +929,7 @@ def load_idf_file_and_clean_names(idf_file, log_clear_names):
             the old and new names in the console.
 
     Returns:
-        idf (translator.idfclass.IDF object at 0x11e3d3208): the IDf object
+        idf (translater.idfclass.IDF object at 0x11e3d3208): the IDf object
 
     """
     log("Loading IDF file...", lg.INFO)
@@ -1024,7 +1024,7 @@ def _add_change_adj_surf(buildingSurfs, idf):
             building surfaces ("BUILDINGSURFACE:DETAILED" in the IDF). Building
             surfaces to iterate over and determine if either a change on an
             adjacent surface is needed or the creation of a new one
-        idf (translator.idfclass.IDF): IDF object
+        idf (translater.idfclass.IDF): IDF object
     """
     adj_surfs_to_change = {}
     adj_surfs_to_make = []
@@ -1128,7 +1128,7 @@ def _get_schedules(idf):
     """Get schedules from IDF
 
     Args:
-        idf (translator.idfclass.IDF): IDF object
+        idf (translater.idfclass.IDF): IDF object
     """
     start_time = time.time()
     log("Reading schedules from the IDF file...")
@@ -1165,7 +1165,7 @@ def clear_name_idf_objects(idfFile, log_clear_names=False):
     new name will be "stl_00000n" - limits length to 10 characters
 
     Args:
-        idfFile (translator.idfclass.IDF): IDF object where to clean names
+        idfFile (translater.idfclass.IDF): IDF object where to clean names
         log_clear_names:
     """
 
@@ -1733,7 +1733,7 @@ def _write_zone_buildingSurf_fenestrationSurf(
         fenestrationSurfs (idf_MSequence): IDF object from idf.idfobjects().
             List of fenestration surfaces ("FENESTRATIONSURFACE:DETAILED" in the
             IDF).
-        idf (translator.idfclass.IDF): IDF object
+        idf (translater.idfclass.IDF): IDF object
         lines (list): Text to create the T3D file (IDF file to import in
             TRNBuild). To be appended (insert) here
         n_ground (Vector 3D): Normal vector of the ground surface
@@ -1889,7 +1889,7 @@ def _modify_adj_surface(buildingSurf, idf):
 
     Args:
         buildingSurf (EpBunch): Building surface object to modify
-        idf (translator.idfclass.IDF): IDF object
+        idf (translater.idfclass.IDF): IDF object
     """
     # Force outside boundary condition to "Zone"
     buildingSurf.Outside_Boundary_Condition = "Zone"
@@ -1948,7 +1948,7 @@ def _inverse_vertices_surf(buildingSurf, idf, outside_bound_surf, idfobject_key)
 
     Args:
         buildingSurf (EpBunch): Building surface object to modify
-        idf (translator.idfclass.IDF): IDF object
+        idf (translater.idfclass.IDF): IDF object
         outside_bound_surf (str): Name of the adjacent surface to the
             buildingSurf
         idfobject_key (str): Section name of the IDF where to find the
@@ -2382,7 +2382,7 @@ def _write_gains(equipments, lights, lines, peoples, htm, old_new_names):
     Args:
         equipments (idf_MSequence): IDF object from idf.idfobjects(). List of
             equipments ("ELECTRICEQUIPMENT" in the IDF).
-        idf (translator.idfclass.IDF): IDF object
+        idf (translater.idfclass.IDF): IDF object
         lights (idf_MSequence): IDF object from idf.idfobjects(). List of lights
             ("LIGHTS" in the IDF).
         lines (list): Text to create the T3D file (IDF file to import in
@@ -2603,7 +2603,7 @@ def _write_constructions_end(constr_list, idf, lines):
 
     Args:
         constr_list (list): list of construction names to be written
-        idf (translator.idfclass.IDF): IDF object
+        idf (translater.idfclass.IDF): IDF object
         lines (list): Text to create the T3D file (IDF file to import in
             TRNBuild). To be appended (insert) here
     """
@@ -2620,7 +2620,7 @@ def _write_constructions(constr_list, idf, lines, mat_name, materials):
 
     Args:
         constr_list (list): list of construction names to be written
-        idf (translator.idfclass.IDF): IDF object
+        idf (translater.idfclass.IDF): IDF object
         lines (list): Text to create the T3D file (IDF file to import in
             TRNBuild). To be appended (insert) here
         mat_name (list): list of material names to be written
