@@ -17,7 +17,7 @@ import sys
 import datetime
 
 sys.path.insert(0, os.path.abspath("."))
-sys.path.insert(0, os.path.abspath("archetypal"))
+sys.path.insert(0, os.path.abspath("translater"))
 
 # -- Project information -----------------------------------------------------
 
@@ -125,7 +125,7 @@ def setup(app):
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = "archetypaldoc"
+htmlhelp_basename = "translaterdoc"
 
 # -- Options for LaTeX output ------------------------------------------------
 
@@ -150,9 +150,9 @@ latex_elements = {
 latex_documents = [
     (
         master_doc,
-        "archetypal.tex",
-        "archetypal Documentation",
-        "Samuel Letellier-Duchesne",
+        "translater.tex",
+        "translater Documentation",
+        "Samuel Letellier-Duchesne & Louis Leroy",
         "manual",
     )
 ]
@@ -161,7 +161,7 @@ latex_documents = [
 
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
-man_pages = [(master_doc, "archetypal", "archetypal Documentation", [author], 1)]
+man_pages = [(master_doc, "translater", "translater Documentation", [author], 1)]
 
 # -- Options for Texinfo output ----------------------------------------------
 
@@ -171,10 +171,10 @@ man_pages = [(master_doc, "archetypal", "archetypal Documentation", [author], 1)
 texinfo_documents = [
     (
         master_doc,
-        "archetypal",
-        "archetypal Documentation",
+        "translater",
+        "translater Documentation",
         author,
-        "archetypal",
+        "translater",
         "One line description of project.",
         "Miscellaneous",
     )
