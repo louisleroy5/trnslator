@@ -4,13 +4,13 @@ import pytest
 from click.testing import CliRunner
 from path import Path
 
-from translater import settings, copy_file, log, load_idf
-from translater.cli import cli
+from translator import settings, copy_file, log, load_idf
+from translator.cli import cli
 from tests.test_trnsys import get_platform
 
 
 class TestCli:
-    """Defines tests for usage of the translater Command Line Interface"""
+    """Defines tests for usage of the translator Command Line Interface"""
 
     @pytest.fixture(
         params=[
@@ -73,7 +73,7 @@ class TestCli:
                 "--ep_version",
                 "9-2-0",
                 "--window_lib",
-                "translater/ressources/W74-lib.dat",
+                "translator/ressources/W74-lib.dat",
                 "tests/input_data/trnsys/simple_2_zone.idf",
                 "tests/input_data/CAN_PQ_Montreal.Intl.AP.716270_CWEC.epw",
                 "--trnsidf_exe",
@@ -95,7 +95,7 @@ class TestCli:
                 "--ep_version",
                 "9-2-0",
                 "--template",
-                "translater/ressources/NewFileTemplate.d18",
+                "translator/ressources/NewFileTemplate.d18",
                 "tests/input_data/trnsys/simple_2_zone.idf",
                 "tests/input_data/CAN_PQ_Montreal.Intl.AP.716270_CWEC.epw",
                 "--trnsidf_exe",

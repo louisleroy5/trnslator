@@ -2,15 +2,15 @@ import os
 import random
 import subprocess
 
-import translater as tr
+import translator as tr
 import matplotlib as mpl
 
 # use agg backend so you don't need a display on travis-ci
 import pytest
 from path import Path
 
-import translater.settings
-from translater import EnergyPlusProcessError, get_eplus_dirs, settings, \
+import translator.settings
+from translator import EnergyPlusProcessError, get_eplus_dirs, settings, \
     parallel_process
 
 mpl.use("Agg")
@@ -85,7 +85,7 @@ def test_load_old(config):
 
 @pytest.mark.parametrize(
     "ep_version",
-    [translater.settings.ep_version, None],
+    [translator.settings.ep_version, None],
     ids=["specific-ep-version", "no-specific-ep-version"],
 )
 def test_run_olderv(clean_config, ep_version):
@@ -175,7 +175,7 @@ def test_area(archetype, area):
     """Test the conditioned_area property against published values
     desired values taken from https://github.com/canmet-energy/btap"""
     import numpy as np
-    from translater import load_idf
+    from translator import load_idf
 
     idf_file = Path("tests/input_data/necb/").glob("*{}*.idf".format(archetype))
     idf = load_idf(next(iter(idf_file)))
@@ -183,7 +183,7 @@ def test_area(archetype, area):
 
 
 def test_wwr():
-    from translater import load_idf
+    from translator import load_idf
 
     idf_file = Path("tests/input_data/necb/").glob(
         "*{}*.idf".format("FullServiceRestaurant")
@@ -194,7 +194,7 @@ def test_wwr():
 
 
 def test_partition_ratio():
-    from translater import load_idf
+    from translator import load_idf
 
     idf_file = Path("tests/input_data/necb/").glob("*LargeOffice*.idf")
     idf = load_idf(next(iter(idf_file)))
@@ -202,7 +202,7 @@ def test_partition_ratio():
 
 
 def test_space_cooling_profile(config):
-    from translater import load_idf
+    from translator import load_idf
 
     file = (
         get_eplus_dirs(settings.ep_version)
@@ -218,7 +218,7 @@ def test_space_cooling_profile(config):
 
 
 def test_space_heating_profile(config):
-    from translater import load_idf
+    from translator import load_idf
 
     file = "tests/input_data/necb/NECB 2011-Warehouse-NECB HDD Method-CAN_PQ_Montreal.Intl.AP.716270_CWEC.epw.idf"
     wf = "tests/input_data/CAN_PQ_Montreal.Intl.AP.716270_CWEC.epw"
@@ -229,7 +229,7 @@ def test_space_heating_profile(config):
 
 
 def test_dhw_profile(config):
-    from translater import load_idf
+    from translator import load_idf
 
     file = "tests/input_data/necb/NECB 2011-Warehouse-NECB HDD Method-CAN_PQ_Montreal.Intl.AP.716270_CWEC.epw.idf"
     wf = "tests/input_data/CAN_PQ_Montreal.Intl.AP.716270_CWEC.epw"
@@ -243,7 +243,7 @@ def test_dhw_profile(config):
 
 def test_old_than_change_args(clean_config):
     """Should upgrade file only once even if run_eplus args are changed afterwards"""
-    from translater import run_eplus
+    from translator import run_eplus
 
     file = (
         get_eplus_dirs(settings.ep_version)

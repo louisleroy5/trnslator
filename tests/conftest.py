@@ -5,7 +5,7 @@ import sys
 
 import pytest
 
-import translater as tr
+import translator as tr
 
 
 # Parametrization of the fixture scratch_then_cache. The following array
