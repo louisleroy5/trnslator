@@ -2,7 +2,7 @@
 # Module: trnsys.py
 # Description: Convert EnergyPlus models to TrnBuild models
 # License: MIT, see full license in LICENSE.txt
-# Web: https://github.com/samuelduchesne/translater
+# Web: https://github.com/louisleroy5/translater
 ################################################################################
 
 import io

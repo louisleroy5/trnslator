@@ -2,7 +2,7 @@
 # Module: schedule.py
 # Description: Functions for handling conversion of EnergyPlus schedule objects
 # License: MIT, see full license in LICENSE.txt
-# Web: https://github.com/samuelduchesne/translater
+# Web: https://github.com/louisleroy5/translater
 ################################################################################
 
 import functools

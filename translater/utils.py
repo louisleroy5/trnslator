@@ -2,7 +2,7 @@
 # Module: utils.py
 # Description: Utility functions for configuration, logging
 # License: MIT, see full license in LICENSE.txt
-# Web: https://github.com/samuelduchesne/translater
+# Web: https://github.com/louisleroy5/translater
 ################################################################################
 # OSMnx
 #

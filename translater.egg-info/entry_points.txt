@@ -1,4 +1,4 @@
 
         [console_scripts]
-        translator= translator.cli:cli
+        translater= translater.cli:cli
     

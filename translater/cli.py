@@ -2,7 +2,7 @@
 # Module: cli.py
 # Description: Implements translater functions as Command Line Interfaces
 # License: MIT, see full license in LICENSE.txt
-# Web: https://github.com/samuelduchesne/translater
+# Web: https://github.com/louisleroy5/translater
 ################################################################################
 import os
 import time

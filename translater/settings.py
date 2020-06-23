@@ -2,7 +2,7 @@
 # Module: settings.py
 # Description: Various settings used across the package
 # License: MIT, see full license in LICENSE.txt
-# Web: https://github.com/samuelduchesne/translater
+# Web: https://github.com/louisleroy5/translater
 ################################################################################
 
 import logging as lg

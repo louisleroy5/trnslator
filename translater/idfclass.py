@@ -3,7 +3,7 @@
 # Description: Various functions for processing of EnergyPlus models and
 #              retrieving results in different forms
 # License: MIT, see full license in LICENSE.txt
-# Web: https://github.com/samuelduchesne/translater
+# Web: https://github.com/louisleroy5/translater
 ################################################################################
 import datetime
 import glob
