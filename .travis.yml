@@ -35,8 +35,8 @@ jobs:
         on:
           distributions: sdist bdist_wheel
           repo: louisleroy5/translater
-          branch: develop
-          tags: false
+          branch: master
+          tags: true
 before_install:
 - source install_energyplus.sh
 - wget https://raw.githubusercontent.com/trichter/conda4travis/latest/conda4travis.sh -O conda4travis.sh
