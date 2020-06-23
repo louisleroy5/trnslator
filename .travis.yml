@@ -1,0 +1,53 @@
+language: python
+env:
+  global:
+  - TRANSLATER_INTEGRATION=True ENERGYPLUS_VERSION=9.2.0 ENERGYPLUS_SHA=921312fa1d
+    ENERGYPLUS_INSTALL_VERSION=9-2-0 MINICONDA_VERSION=latest
+addons:
+  apt:
+    packages:
+    - wine
+    - libgfortran3
+jobs:
+  include:
+    - name: Python 3.8 on Xenial Linux
+      python: 3.8           # this works for Linux but is ignored on macOS or Windows
+      script: py.test --cov=translater --verbose tests/
+      after_success:
+        - coverage report -m
+        - coveralls
+    - name: Python 3.8 on macOS
+      os: osx
+      osx_image: xcode11.2
+      language: objective-c
+      script: py.test --cov=translater --verbose tests/
+    - name: "Python 3.8 on Windows"
+      os: windows           # Windows 10.0.17134 N/A Build 17134
+      language: shell       # 'language: python' is an error on Travis CI Windows
+      script: py.test --cov=translater --verbose tests/
+    - stage: deploy
+      script: echo "Deploying to PyPi and GitHub releases ..."
+      deploy:
+      - provider: pypi
+        user: louisleroy5
+        password:
+          secure: q9/Zn6gDGvqNgteVI9XINg7R76uSsZDDDRjCNv9HR3660EdaHyS6lVCZwMSSR6DgWE623R8HfLaEbc8Y1r+jluzy59nOuYVB8n6MfBweWHT9Pts22RKzH7MPz2HNct+C0PwM2CRLJjq1fXql6qtWq8DiGYk7B9rk+Z3C+wamOj8IOFfq6uQC61LQWDKv4nD1feDisdFdR3JAzx23HlutgyQxltPjltYz3v1elQFQPRm3ggISSntkz3LDsw9dHiQeqgsiEU6sMCCQpqa+IGGOIqppazx+kh2+muOF+VQTvMx5MHdx1YubPK0+RStIRrkp8j7hA7LHFxFRWnRIiRDHWXAJGanrYL3ss62tZJj3PPQ+DT52HVhLPswN6eoof1ahD5SBQBQrnZdtxSMgzEfegtZMGLCrO7cllRjV6jCuS28FMQWMxwdO3qTDcp8c9Cf9lIdL4seMrFAneVtmcCpW0XfnprTW9Req33PePo7h0bSSvBhgZv2kkiAy6g5MndOmi+Msavz9sPTyo7zySEx3k7e+0+GMWmJYg5+rB4xWpvbIFntZeN5M4CfG9QDX3cz0GZ5znxc8hurbqsNq9mH95fPorZ8UDjXTyw7LawluiQA1Pvi6sZ7tXzC/lSr1VM7udX3TH7QEVOsAevf0ZbkDRAN8NOs6ywbQ+EmHZXekNnc=
+        on:
+          distributions: sdist bdist_wheel
+          repo: louisleroy5/translater
+          branch: master
+          tags: true
+before_install:
+- source install_energyplus.sh
+- wget https://raw.githubusercontent.com/trichter/conda4travis/latest/conda4travis.sh -O conda4travis.sh
+- source conda4travis.sh
+- conda config --set always_yes yes --set changeps1 no
+- conda update -q conda
+- conda info -a
+- conda env update -q -n test-env python=$TRAVIS_PYTHON_VERSION -f environment.yml
+- conda activate test-env
+- python --version
+install:
+# - pip install --upgrade pip
+- pip install --upgrade setuptools
+- pip install .[dev]
