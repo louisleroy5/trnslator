@@ -12,6 +12,15 @@ def test_rotate(config):
     assert (l2 == [2, 3, 1])
 
 
+def test_lcm(config):
+    # This function takes two integers and returns the L.C.M.
+    x = 10
+    y = 50
+    lcm = utils.lcm(x, y)
+
+    assert (lcm == 5)
+
+
 
 
 
