@@ -1,7 +1,9 @@
 import pytest
+import os
+
 import numpy as np
 
-from translater import utils, timeit
+from translater import utils, timeit, settings
 from geomeppy.geom.polygons import Polygon3D
 
 
@@ -33,7 +35,7 @@ def test_float_round(config):
     assert float_num == 40.2
 
 
-def test_angle(v1, v2, acute=False):
+def test_angle(config):
     # Calculate the angle between 2 vectors
     # Polygon1 & vector1
     poly1 = Polygon3D(
@@ -44,3 +46,12 @@ def test_angle(v1, v2, acute=False):
     angle = utils.angle(v1, v2, acute=False)
 
     assert angle == 2 * np.pi
+
+
+def test_write_lines(config):
+    # Delete file if exists, then write lines in it
+    path = settings.data_folder
+    lines = ["Test to write lines in file", "2nd line", "end of document"]
+    utils.write_lines(path, lines)
+
+    assert os.path.exists(path)
