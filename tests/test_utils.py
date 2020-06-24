@@ -1,6 +1,6 @@
 import pytest
 
-from translater import utils
+from translater import utils, timeit
 
 
 def test_rotate(config):
@@ -11,7 +11,7 @@ def test_rotate(config):
 
     assert (l2 == [2, 3, 1])
 
-
+@timeit
 def test_lcm(config):
     # This function takes two integers and returns the L.C.M.
     x = 10
