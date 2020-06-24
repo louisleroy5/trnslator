@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-archetypal |version|
+translater |version|
 ====================
 
 `translater` is a Python package designed with the objective of helping building energy modelers and researchers
