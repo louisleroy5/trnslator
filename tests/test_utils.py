@@ -55,3 +55,11 @@ def test_write_lines(config):
     utils.write_lines(path, lines)
 
     assert os.path.exists(path)
+
+
+def test_date_transform(config):
+    # Simple function transforming one-based hours (1->24) into zero-based hours (0->23)
+    date_str = "08:10"
+    new_date = utils.date_transform(date_str)
+
+    assert new_date == "07:10"
