@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.com/louisleroy5/transalter.svg?branch=develop)](https://travis-ci.com/samuelduchesne/archetypal)
+[![Build Status](https://travis-ci.com/louisleroy5/translater.svg?branch=develop)](https://travis-ci.com/louisleroy5/translater)
 [![Coverage Status](https://coveralls.io/repos/github/louisleroy5/translater/badge.svg)](https://coveralls.io/github/louisleroy5/translater)
-[![Documentation Status](https://readthedocs.org/projects/archetypal/badge/?version=latest)](https://archetypal.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/translater/badge/?version=latest)](https://translater.readthedocs.io/en/latest/?badge=latest)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 # Translater
