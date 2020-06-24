@@ -15,7 +15,7 @@ jobs:
       script: pytest --cov=translater --verbose tests/
       after_success:
         - coverage report -m
-        - coveralls
+        - coverall
     - name: Python 3.8 on macOS
       os: osx
       osx_image: xcode11.2
