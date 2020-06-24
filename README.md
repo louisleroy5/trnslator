@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/louisleroy5/translater.svg?branch=develop)](https://travis-ci.com/louisleroy5/translater)
+[![Build Status](https://travis-ci.com/louisleroy5/translater.svg?token=qpRnYhTVUeLJ5WM1w9Wx&branch=master)](https://travis-ci.com/louisleroy5/translater)
 [![Coverage Status](https://coveralls.io/repos/github/louisleroy5/translater/badge.svg)](https://coveralls.io/github/louisleroy5/translater)
 [![Documentation Status](https://readthedocs.org/projects/translater/badge/?version=latest)](https://translater.readthedocs.io/en/latest/?badge=latest)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
