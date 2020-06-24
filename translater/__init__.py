@@ -12,7 +12,7 @@ __version__ = "1.0.3"
 from outdated import warn_if_outdated
 from .utils import warn_if_not_compatible
 
-# warn_if_outdated("translater", __version__)
+warn_if_outdated("translater", __version__)
 warn_if_not_compatible()
 
 from .utils import *
