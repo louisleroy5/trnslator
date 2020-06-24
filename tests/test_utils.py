@@ -5,6 +5,7 @@ import numpy as np
 
 from translater import utils, timeit, settings
 from geomeppy.geom.polygons import Polygon3D
+from datetime import datetime
 
 
 def test_rotate(config):
@@ -15,15 +16,14 @@ def test_rotate(config):
 
     assert l2 == [2, 3, 1]
 
-
 @timeit
-def test_lcm(config):
+def test_lcm():
     # This function takes two integers and returns the L.C.M.
     x = 10
     y = 50
     lcm = utils.lcm(x, y)
 
-    assert lcm == 5
+    assert lcm == 50
 
 
 def test_float_round(config):
@@ -50,7 +50,7 @@ def test_angle(config):
 
 def test_write_lines(config):
     # Delete file if exists, then write lines in it
-    path = settings.data_folder
+    path = os.path.join(settings.data_folder, "write_lines.txt")
     lines = ["Test to write lines in file", "2nd line", "end of document"]
     utils.write_lines(path, lines)
 
@@ -62,4 +62,4 @@ def test_date_transform(config):
     date_str = "08:10"
     new_date = utils.date_transform(date_str)
 
-    assert new_date == "07:10"
+    assert new_date == datetime(1900, 1, 1, 7, 10)
