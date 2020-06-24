@@ -33,4 +33,14 @@ def test_float_round(config):
     assert float_num == 40.2
 
 
+def test_angle(v1, v2, acute=False):
+    # Calculate the angle between 2 vectors
+    # Polygon1 & vector1
+    poly1 = Polygon3D(
+        [(215.5, 5.0, 0.5), (215.5, 5.0, 2.0), (217.0, 5.0, 2.0), (217.0, 5.0, 0.5)]
+    )
+    v1 = poly1.normal_vector
+    v2 = v1
+    angle = utils.angle(v1, v2, acute=False)
 
+    assert angle == 2 * np.pi
