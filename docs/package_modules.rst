@@ -4,7 +4,7 @@ Modules
 IDF Class
 ---------
 
-.. currentmodule:: archetypal.idfclass
+.. currentmodule:: translater.idfclass
 
 .. autosummary::
     :template: autosummary.rst
