@@ -278,57 +278,13 @@ def make_str(value):
         return str(value)
 
 
-def load_umi_template_objects(filename):
-    """Reads
-
-    Args:
-        filename (str): path of template file
-
-    Returns:
-        dict: Dict of umi_objects
-    """
-    with open(filename) as f:
-        umi_objects = json.load(f)
-    return umi_objects
-
-
-def umi_template_object_to_dataframe(umi_dict, umi_object):
-    """Returns flattened DataFrame of umi_objects
-
-    Args:
-        umi_dict (dict): dict of umi objects
-        umi_object (str): umi_object name
-
-    Returns:
-        pandas.DataFrame: flattened DataFrame of umi_objects
-    """
-    return json_normalize(umi_dict[umi_object])
-
-
-def get_list_of_common_umi_objects(filename):
-    """Returns list of common umi objects
-
-    Args:
-        filename (str): path to umi template file
-
-    Returns:
-        dict: Dict of common umi objects
-    """
-    umi_objects = load_umi_template(filename)
-    components = OrderedDict()
-    for umi_dict in umi_objects:
-        for x in umi_dict:
-            components[x] = umi_dict[x].columns.tolist()
-    return components
-
-
 def newrange(previous, following):
     """Takes the previous DataFrame and calculates a new Index range. Returns a
     DataFrame with a new index
 
     Args:
         previous (pandas.DataFrame): previous DataFrame
-        following (pandas.DataFrame): follwoing DataFrame
+        following (pandas.DataFrame): following DataFrame
 
     Returns:
         pandas.DataFrame: DataFrame with an incremented new index
@@ -343,170 +299,6 @@ def newrange(previous, following):
     else:
         # If previous dataframe is empty, return the orginal DataFrame
         return following
-
-
-def type_surface(row):
-    """Takes a boundary and returns its corresponding umi-type
-
-    Args:
-        row:
-
-    Returns:
-        str: The umi-type of boundary
-    """
-
-    # Floors
-    if row["Surface_Type"] == "Floor":
-        if row["Outside_Boundary_Condition"] == "Surface":
-            return 3
-        if row["Outside_Boundary_Condition"] == "Ground":
-            return 2
-        if row["Outside_Boundary_Condition"] == "Outdoors":
-            return 4
-        else:
-            return np.NaN
-
-    # Roofs & Ceilings
-    if row["Surface_Type"] == "Roof":
-        return 1
-    if row["Surface_Type"] == "Ceiling":
-        return 3
-    # Walls
-    if row["Surface_Type"] == "Wall":
-        if row["Outside_Boundary_Condition"] == "Surface":
-            return 5
-        if row["Outside_Boundary_Condition"] == "Outdoors":
-            return 0
-    return np.NaN
-
-
-def label_surface(row):
-    """Takes a boundary and returns its corresponding umi-Category
-
-    Args:
-        row:
-    """
-    # Floors
-    if row["Surface_Type"] == "Floor":
-        if row["Outside_Boundary_Condition"] == "Surface":
-            return "Interior Floor"
-        if row["Outside_Boundary_Condition"] == "Ground":
-            return "Ground Floor"
-        if row["Outside_Boundary_Condition"] == "Outdoors":
-            return "Exterior Floor"
-        else:
-            return "Other"
-
-    # Roofs & Ceilings
-    if row["Surface_Type"] == "Roof":
-        return "Roof"
-    if row["Surface_Type"] == "Ceiling":
-        return "Interior Floor"
-    # Walls
-    if row["Surface_Type"] == "Wall":
-        if row["Outside_Boundary_Condition"] == "Surface":
-            return "Partition"
-        if row["Outside_Boundary_Condition"] == "Outdoors":
-            return "Facade"
-    return "Other"
-
-
-def layer_composition(row):
-    """Takes in a series with $id and thickness values and return an array of
-    dict of the form {'Material': {'$ref': ref}, 'thickness': thickness} If
-    thickness is 'nan', it returns None.
-
-    Returns (list): List of dicts
-
-    Args:
-        row (pandas.Series): a row
-    """
-    array = []
-    ref = row["$id", "Outside_Layer"]
-    thickness = row["Thickness", "Outside_Layer"]
-    if np.isnan(ref):
-        pass
-    else:
-        array.append({"Material": {"$ref": str(int(ref))}, "Thickness": thickness})
-        for i in range(2, len(row["$id"]) + 1):
-            ref = row["$id", "Layer_{}".format(i)]
-            if np.isnan(ref):
-                pass
-            else:
-                thickness = row["Thickness", "Layer_{}".format(i)]
-                array.append(
-                    {"Material": {"$ref": str(int(ref))}, "Thickness": thickness}
-                )
-        return array
-
-
-def schedule_composition(row):
-    """Takes in a series with $id and \*_ScheduleDay_Name values and return an
-    array of dict of the form {'$ref': ref}
-
-    Args:
-        row (pandas.Series): a row
-
-    Returns:
-        list: list of dicts
-    """
-    # Assumes 7 days
-    day_schedules = []
-    days = [
-        "Monday_ScheduleDay_Name",
-        "Tuesday_ScheduleDay_Name",
-        "Wednesday_ScheduleDay_Name",
-        "Thursday_ScheduleDay_Name",
-        "Friday_ScheduleDay_Name",
-        "Saturday_ScheduleDay_Name",
-        "Sunday_ScheduleDay_Name",
-    ]  # With weekends last (as defined in
-    # umi-template)
-    # Let's start with the `Outside_Layer`
-    for day in days:
-        try:
-            ref = row["$id", day]
-        except:
-            pass
-        else:
-            day_schedules.append({"$ref": str(int(ref))})
-    return day_schedules
-
-
-def year_composition(row):
-    """Takes in a series with $id and ScheduleWeek_Name_{} values and return an
-    array of dict of the form {'FromDay': fromday, 'FromMonth': frommonth,
-    'Schedule': {'$ref': int( ref)}, 'ToDay': today, 'ToMonth': tomonth}
-
-    Args:
-        row (pandas.Series): a row
-
-    Returns:
-        list: list of dicts
-    """
-    parts = []
-    for i in range(1, 26 + 1):
-        try:
-            ref = row["$id", "ScheduleWeek_Name_{}".format(i)]
-        except:
-            pass
-        else:
-            if ~np.isnan(ref):
-                fromday = row["Schedules", "Start_Day_{}".format(i)]
-                frommonth = row["Schedules", "Start_Month_{}".format(i)]
-                today = row["Schedules", "End_Day_{}".format(i)]
-                tomonth = row["Schedules", "End_Month_{}".format(i)]
-
-                parts.append(
-                    {
-                        "FromDay": fromday,
-                        "FromMonth": frommonth,
-                        "Schedule": {"$ref": str(int(ref))},
-                        "ToDay": today,
-                        "ToMonth": tomonth,
-                    }
-                )
-    return parts
 
 
 def date_transform(date_str):
@@ -790,23 +582,6 @@ def write_lines(file_path, lines):
     temp_idf_file.close()
 
 
-def load_umi_template(json_template):
-    """
-    Args:
-        json_template: Absolute or relative filepath to an umi json_template
-
-    Returns:
-        pandas.DataFrame: 17 DataFrames, one for each component groups
-    """
-    if os.path.isfile(json_template):
-        with open(json_template) as f:
-            dicts = json.load(f, object_pairs_hook=OrderedDict)
-
-            return [{key: json_normalize(value)} for key, value in dicts.items()]
-    else:
-        raise ValueError("File {} does not exist".format(json_template))
-
-
 def check_unique_name(first_letters, count, name, unique_list, suffix=False):
     """Making sure new_name does not already exist
 
@@ -981,20 +756,6 @@ def lcm(x, y):
         greater += 1
 
     return lcm
-
-
-def reduce(function, iterable, **attr):
-    """
-    Args:
-        function:
-        iterable:
-        **attr:
-    """
-    it = iter(iterable)
-    value = next(it)
-    for element in it:
-        value = function(value, element, **attr)
-    return value
 
 
 def _unpack_tuple(x):
