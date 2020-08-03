@@ -448,6 +448,10 @@ def convert_idf_to_trnbuild(
     # T initial to b18
     t_initial_to_b18(b18_lines, zones, schedules)
 
+    if schedule_as_input:
+        # Reduce number of schedules written as Inputs
+        reduce_schedule(b18_lines, lines, schedule_names)
+
     # Save B18 file at output_folder
     if output_folder is None:
         # User did not provide an output folder path. We use the default setting
@@ -460,6 +464,43 @@ def convert_idf_to_trnbuild(
     # endregion
 
     return return_path
+
+
+def reduce_schedule(b18_lines, lines, schedule_names):
+    name_to_delete = []
+    count = checkStr(b18_lines, "INPUTS_DESCRIPTION")
+
+    # Search schedule names that are not used in the b18 file
+    for name in schedule_names:
+        bool_list = [name in line for line in b18_lines[count:]]
+        if not any(bool_list):
+            name_to_delete.append(name)
+
+    # Delete the unused schedule names from the "INPUTS" line (in the T3D lines)
+    input_count = checkStr(lines, "I n p u t s")
+    input_descr_count = checkStr(lines, "INPUTS_DESCRIPTION")
+    input_lines = lines[input_count + 1 : input_descr_count-1]
+    for idx, line in enumerate(input_lines):
+        removed = []
+        for name in name_to_delete:
+            if name in line:
+                input_lines[idx] = line.replace(name, "")
+                # input_lines[idx] = input_lines[idx].replace("  ", " ")
+                # input_lines[idx] = input_lines[idx].replace(" ;", ";")
+                # input_lines[idx] = input_lines[idx].replace("!-", "")
+                removed.append(name)
+        for rmv_name in removed:
+            name_to_delete.remove(rmv_name)
+
+    # Remove "INPUTS" line from b18_lines and insert the "input_lines" from T3D file
+    # From where we just deleted the unused schedule names
+    del b18_lines[count - 2]
+    input_lines.reverse()
+    for line in input_lines:
+        line = line.replace("  ", " ")
+        line = line.replace(" ;", ";")
+        line = line.replace("!-", "")
+        b18_lines.insert(count - 2, line)
 
 
 def t_initial_to_b18(b18_lines, zones, schedules):
