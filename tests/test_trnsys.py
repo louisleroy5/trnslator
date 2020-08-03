@@ -1338,6 +1338,6 @@ def test_trnbuild_from_simple_idf(config):
         window_lib=window_filepath,
         template="tests/input_data/trnsys/NewFileTemplate.d18",
         trnsidf_exe="docker/trnsidf/trnsidf.exe",
-        schedule_as_input=False,
+        schedule_as_input=True,
         **kwargs_dict
     )
