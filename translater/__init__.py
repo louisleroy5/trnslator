@@ -6,13 +6,13 @@
 ################################################################################
 
 # Version of the package
-__version__ = "1.0.3"
+__version__ = "1.0.4"
 
 # warn if a newer version of translater is available
 from outdated import warn_if_outdated
 from .utils import warn_if_not_compatible
 
-# warn_if_outdated("translater", __version__)
+warn_if_outdated("translater", __version__)
 warn_if_not_compatible()
 
 from .utils import *
