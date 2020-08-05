@@ -485,9 +485,6 @@ def reduce_schedule(b18_lines, lines, schedule_names):
         for name in name_to_delete:
             if name in line:
                 input_lines[idx] = line.replace(name, "")
-                # input_lines[idx] = input_lines[idx].replace("  ", " ")
-                # input_lines[idx] = input_lines[idx].replace(" ;", ";")
-                # input_lines[idx] = input_lines[idx].replace("!-", "")
                 removed.append(name)
         for rmv_name in removed:
             name_to_delete.remove(rmv_name)
