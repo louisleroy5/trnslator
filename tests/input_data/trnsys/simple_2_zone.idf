@@ -983,10 +983,10 @@
     ,                        !- Frame and Divider Name
     ,                        !- Multiplier
     ,                        !- Number of Vertices
-    215.5,5,0.5,  !- X,Y,Z ==> Vertex 1 {m}
-    215.5,5,2,  !- X,Y,Z ==> Vertex 2 {m}
-    217,5,2,  !- X,Y,Z ==> Vertex 3 {m}
-    217,5,0.5;  !- X,Y,Z ==> Vertex 4 {m}
+    5,217,0.5,  !- X,Y,Z ==> Vertex 1 {m}
+    5,217,2,  !- X,Y,Z ==> Vertex 2 {m}
+    5,215.5,2,  !- X,Y,Z ==> Vertex 3 {m}
+    5,215.5,0.5;  !- X,Y,Z ==> Vertex 4 {m}
 
 !-   ===========  ALL OBJECTS IN CLASS: PEOPLE ===========
 
