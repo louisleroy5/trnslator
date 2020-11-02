@@ -17,18 +17,18 @@ import sys
 import datetime
 
 sys.path.insert(0, os.path.abspath("."))
-sys.path.insert(0, os.path.abspath("translater"))
+sys.path.insert(0, os.path.abspath("trnslator"))
 
 # -- Project information -----------------------------------------------------
 
-project = "translater"
+project = "trnslator"
 copyright = "{}, Samuel Letellier-Duchesne & Louis Leroy".format(datetime.datetime.now().year)
 author = "Samuel Letellier-Duchesne & Louis Leroy"
 
 # The full version, including alpha/beta/rc tags
-import translater
+import trnslator
 
-version = release = translater.__version__
+version = release = trnslator.__version__
 
 # -- General configuration ---------------------------------------------------
 
@@ -125,7 +125,7 @@ def setup(app):
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = "translaterdoc"
+htmlhelp_basename = "trnslatordoc"
 
 # -- Options for LaTeX output ------------------------------------------------
 
@@ -150,8 +150,8 @@ latex_elements = {
 latex_documents = [
     (
         master_doc,
-        "translater.tex",
-        "translater Documentation",
+        "trnslator.tex",
+        "trnslator Documentation",
         "Samuel Letellier-Duchesne & Louis Leroy",
         "manual",
     )
@@ -161,7 +161,7 @@ latex_documents = [
 
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
-man_pages = [(master_doc, "translater", "translater Documentation", [author], 1)]
+man_pages = [(master_doc, "trnslator", "trnslator Documentation", [author], 1)]
 
 # -- Options for Texinfo output ----------------------------------------------
 
@@ -171,10 +171,10 @@ man_pages = [(master_doc, "translater", "translater Documentation", [author], 1)
 texinfo_documents = [
     (
         master_doc,
-        "translater",
-        "translater Documentation",
+        "trnslator",
+        "trnslator Documentation",
         author,
-        "translater",
+        "trnslator",
         "One line description of project.",
         "Miscellaneous",
     )

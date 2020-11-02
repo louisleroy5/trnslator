@@ -5,7 +5,7 @@ import shutil
 
 import pytest
 
-import translater as tr
+import trnslator as tr
 
 import pandas as pd
 
@@ -13,7 +13,7 @@ from path import Path
 
 from copy import deepcopy
 
-from translater import (
+from trnslator import (
     convert_idf_to_trnbuild,
     parallel_process,
     trnbuild_idf,
@@ -27,7 +27,7 @@ from translater import (
 )
 
 # Function round to hundreds
-from translater.trnsys import (
+from trnslator.trnsys import (
     _assert_files,
     load_idf_file_and_clean_names,
     clear_name_idf_objects,
@@ -72,7 +72,7 @@ from tests.conftest import get_platform
 def converttesteasy(request):
     file = request.param
     window_file = "W74-lib.dat"
-    template_dir = os.path.join("translater", "ressources")
+    template_dir = os.path.join("trnslator", "ressources")
     window_filepath = os.path.join(template_dir, window_file)
     template_d18 = "tests/input_data/trnsys/NewFileTemplate.d18"
     trnsidf_exe = "docker/trnsidf/trnsidf.exe"  # 'docker/trnsidf/trnsidf.exe'
@@ -770,7 +770,7 @@ def converttest(request):
     file = get_eplus_dirs(settings.ep_version) / "ExampleFiles" / request.param
     # file = request.param
     window_file = "W74-lib.dat"
-    template_dir = os.path.join("translater", "ressources")
+    template_dir = os.path.join("trnslator", "ressources")
     window_filepath = os.path.join(template_dir, window_file)
     template_d18 = "tests/input_data/trnsys/NewFileTemplate.d18"
     trnsidf_exe = "docker/trnsidf/trnsidf.exe"  # 'docker/trnsidf/trnsidf.exe'
@@ -1162,7 +1162,7 @@ class TestTrnBuild:
     def test_trnbuild_from_idf(self, config, trnbuild_file):
         # Gets file paths/names
         window_file = "W74-lib.dat"
-        template_dir = os.path.join("translater", "ressources")
+        template_dir = os.path.join("trnslator", "ressources")
         window_filepath = os.path.join(template_dir, window_file)
         weather_file = os.path.join(
             "tests", "input_data", "CAN_PQ_Montreal.Intl.AP.716270_CWEC.epw"
@@ -1305,7 +1305,7 @@ class TestTrnBuild:
 def test_trnbuild_from_simple_idf(config):
     # Path to weather file, window library and T3D template
     window_file = "W74-lib.dat"
-    template_dir = os.path.join("translater", "ressources")
+    template_dir = os.path.join("trnslator", "ressources")
     window_filepath = os.path.join(template_dir, window_file)
     # weather_file = os.path.join(
     #     "tests", "input_data", "CAN_QC_Montreal-McTavish.716120_CWEC2016.epw"

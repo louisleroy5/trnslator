@@ -2,7 +2,7 @@
 # Module: settings.py
 # Description: Various settings used across the package
 # License: MIT, see full license in LICENSE.txt
-# Web: https://github.com/louisleroy5/translater
+# Web: https://github.com/louisleroy5/trnslator
 ################################################################################
 
 import logging as lg
@@ -11,7 +11,7 @@ import pint
 from path import Path
 
 # locations to save data, logs, images, and cache
-import translater
+import trnslator
 
 data_folder = Path("data")
 logs_folder = Path("logs")
@@ -27,8 +27,8 @@ log_file = False
 log_console = False
 log_notebook = False
 log_level = lg.INFO
-log_name = "translater"
-log_filename = "translater"
+log_name = "trnslator"
+log_filename = "trnslator"
 
 # usual idfobjects
 useful_idf_objects = [
@@ -125,7 +125,7 @@ trnsys_default_folder = Path(r"C:\TRNSYS18")
 # region read template - use io.BytesIO(settings.template) in code
 import pkg_resources
 
-resource_package = translater.__name__  # Could be any module/package name
+resource_package = trnslator.__name__  # Could be any module/package name
 
 # originBUISketchUp.idf template
 resource_path = "/".join(("ressources", "originBUISketchUp.idf"))
@@ -171,5 +171,5 @@ class ZoneWeight(object):
 
 zone_weight = ZoneWeight(n=0)
 
-# Latest version of EnergyPlus compatible with translater
+# Latest version of EnergyPlus compatible with trnslator
 ep_version = "9-2-0"

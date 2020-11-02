@@ -1,12 +1,12 @@
 import os
 
-import translater as tr
+import trnslator as tr
 import pandas as pd
 import pytest
 
 from path import Path
 
-from translater import EnergySeries, get_eplus_dirs, settings
+from trnslator import EnergySeries, get_eplus_dirs, settings
 
 import numpy as np
 
@@ -22,7 +22,7 @@ import numpy as np
     ],
 )
 def energy_series(config, request):
-    from translater import ReportData
+    from trnslator import ReportData
 
     outputs = {
         "ep_object": "Output:Variable".upper(),
@@ -62,7 +62,7 @@ def energy_series(config, request):
     params=(["Water Heater Tank Temperature", "WaterSystems:EnergyTransfer"])
 )
 def rd(request):
-    from translater import ReportData
+    from trnslator import ReportData
 
     file = Path("tests/input_data/trnsys/HeatPumpWaterHeater.sqlite")
 
@@ -73,7 +73,7 @@ def rd(request):
 
 def test_EnergySeries(rd):
     import matplotlib.pyplot as plt
-    from translater import EnergySeries
+    from trnslator import EnergySeries
 
     es = EnergySeries.from_sqlite(rd)
     es.plot()

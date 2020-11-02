@@ -13,8 +13,8 @@ from matplotlib.colors import LightSource
 from pandas import Series, DataFrame, concat, MultiIndex, date_range
 from sklearn import preprocessing
 
-import translater
-from translater import log, rmse, piecewise, settings
+import trnslator
+from trnslator import log, rmse, piecewise, settings
 
 
 class EnergySeries(Series):
@@ -550,7 +550,7 @@ class EnergySeries(Series):
         from pandas.core.reshape.reshape import unstack
 
         result = unstack(self, level, fill_value)
-        result.__class__ = translater.EnergyDataFrame
+        result.__class__ = trnslator.EnergyDataFrame
         return result.__finalize__(self)
 
     def stack(self, level=-1, dropna=True):

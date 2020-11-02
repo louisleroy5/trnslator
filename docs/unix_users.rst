@@ -1,7 +1,7 @@
 For MacOS/Linux users
 =====================
 
-MacOS or Linux users must install Wine_ before running translater. This software
+MacOS or Linux users must install Wine_ before running trnslator. This software
 will allow MacOS/Linux users to run Windows application (e.g. `trnsidf.exe`).
 
 Wine installation
@@ -40,18 +40,18 @@ This action will make Homebrew inspected your system to make sure the installati
 
 For more information about Wine installation, you can visit the following website: https://www.davidbaumgold.com/tutorials/wine-mac/
 
-Using WINE with ``translater convert`` command
+Using WINE with ``trnslator convert`` command
 ----------------------------------------------
 
 The IDF to BUI converter uses an executable installed with TRNSYS (which is Windows only). Users that have bought
-TRNSYS can copy the trnsidf.exe executable to their UNIX machine (MacOs or Linux) and invoke the `translater convert`
+TRNSYS can copy the trnsidf.exe executable to their UNIX machine (MacOs or Linux) and invoke the `trnslator convert`
 command with the :option:`--trnsidf_exe` option.
 
 Example:
 
 .. code-block:: python
 
-    translater convert --trnsidf-exe "<path to executable on UNIX machine>" "<path to IDF file>"
+    trnslator convert --trnsidf-exe "<path to executable on UNIX machine>" "<path to IDF file>"
 
 You can find the executable trnsidf.exe in the TRNSYS default installation folder:
 `C:\\TRNSYS18\\Building\\trnsIDF`

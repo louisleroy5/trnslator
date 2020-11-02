@@ -9,7 +9,7 @@ if "%SPHINXBUILD%" == "" (
 )
 set SOURCEDIR=./docs
 set BUILDDIR=_build
-set SPHINXPROJ=translater
+set SPHINXPROJ=trnslator
 
 if "%1" == "" goto help
 
