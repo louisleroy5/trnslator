@@ -4,7 +4,7 @@ Modules
 IDF Class
 ---------
 
-.. currentmodule:: translater.idfclass
+.. currentmodule:: trnslator.idfclass
 
 .. autosummary::
     :template: autosummary.rst
@@ -22,7 +22,7 @@ IDF Class
 Schedule Module
 ---------------
 
-.. currentmodule:: translater.schedule
+.. currentmodule:: trnslator.schedule
 
 .. autosummary::
     :template: autosummary.rst
@@ -35,7 +35,7 @@ Schedule Module
 EnergyDataFrame
 ---------------
 
-.. currentmodule:: translater.energydataframe
+.. currentmodule:: trnslator.energydataframe
 
 .. autosummary::
     :template: autosummary.rst
@@ -50,7 +50,7 @@ EnergyDataFrame
 EnergySeries
 ------------
 
-.. currentmodule:: translater.energyseries
+.. currentmodule:: trnslator.energyseries
 
 .. autosummary::
     :template: autosummary.rst
@@ -85,7 +85,7 @@ EnergySeries
 Report Data
 -----------
 
-.. currentmodule:: translater.reportdata
+.. currentmodule:: trnslator.reportdata
 
 .. autosummary::
     :template: autosummary.rst
@@ -103,7 +103,7 @@ Report Data
 IDF to BUI module
 -----------------
 
-.. currentmodule:: translater.trnsys
+.. currentmodule:: trnslator.trnsys
 
 .. autosummary::
     :template: autosummary.rst
@@ -124,7 +124,7 @@ IDF to BUI module
 Utils
 -----
 
-.. currentmodule:: translater.utils
+.. currentmodule:: trnslator.utils
 
 .. autosummary::
     :template: autosummary.rst

@@ -3,7 +3,7 @@ import os
 
 import numpy as np
 
-from translater import utils, timeit, settings
+from trnslator import utils, timeit, settings
 from geomeppy.geom.polygons import Polygon3D
 from datetime import datetime
 

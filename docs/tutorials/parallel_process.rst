@@ -1,20 +1,20 @@
 Running multiple files
 ======================
 
-Running multiple IDF files is easily achieved by using the :meth:`~translater.utils.parallel_process` method.
+Running multiple IDF files is easily achieved by using the :meth:`~trnslator.utils.parallel_process` method.
 
 .. hint::
 
-    The :meth:`~translater.utils.parallel_process` method works with any method. You can use it to parallelize
+    The :meth:`~trnslator.utils.parallel_process` method works with any method. You can use it to parallelize
     other functions in your script.
 
-To create a parallel run, first import the usual pacakge methods and configure `translater` to use caching and to
+To create a parallel run, first import the usual pacakge methods and configure `trnslator` to use caching and to
 show logs in the console.
 
 .. code-block:: python
 
     >>> from path import Path
-    >>> from translater import load_idf, config, run_eplus, settings, parallel_process
+    >>> from trnslator import load_idf, config, run_eplus, settings, parallel_process
     >>> import pandas as pd
     >>> config(use_cache=True, log_console=True)
 
@@ -22,8 +22,8 @@ Then, use
 
 .. code-block:: python
 
-    >>> from translater import load_idf, config, run_eplus, settings
-    >>> from translater import parallel_process
+    >>> from trnslator import load_idf, config, run_eplus, settings
+    >>> from trnslator import parallel_process
     >>> import pandas as pd
     >>> config(use_cache=True, log_console=True)
 
@@ -42,8 +42,8 @@ For good measure, load the files in a DataFrame, which we will use to create the
 
     >>> idfs = pd.DataFrame({"file": files, "name": [file.basename() for file in files]})
 
-The rundict, is the list of tasks we wish to do in parallel. This dictionary is passed to :meth:`~translater.idfclass
-.parallel_process`. Here, we want to execute :meth:`~translater.idfclass.run_eplus` with the following parameters:
+The rundict, is the list of tasks we wish to do in parallel. This dictionary is passed to :meth:`~trnslator.idfclass
+.parallel_process`. Here, we want to execute :meth:`~trnslator.idfclass.run_eplus` with the following parameters:
 
 .. code-block:: python
 
@@ -60,8 +60,8 @@ The rundict, is the list of tasks we wish to do in parallel. This dictionary is 
             for k, file in idfs.file.to_dict().items()
         }
 
-Finally, execute :meth:`~translater.utils.parallel_process`. The resulting sql_file paths, which we defined as the
-type of output_report attribute for :meth:`~translater.idfclass.run_eplus` is returned as a dictionary with the same
+Finally, execute :meth:`~trnslator.utils.parallel_process`. The resulting sql_file paths, which we defined as the
+type of output_report attribute for :meth:`~trnslator.idfclass.run_eplus` is returned as a dictionary with the same
 keys as the index of the DataFrame.
 
 .. code-block:: python

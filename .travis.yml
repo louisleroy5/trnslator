@@ -1,7 +1,7 @@
 language: python
 env:
   global:
-  - TRANSLATER_INTEGRATION=True ENERGYPLUS_VERSION=9.2.0 ENERGYPLUS_SHA=921312fa1d
+  - TRNSLATOR_INTEGRATION=True ENERGYPLUS_VERSION=9.2.0 ENERGYPLUS_SHA=921312fa1d
     ENERGYPLUS_INSTALL_VERSION=9-2-0 MINICONDA_VERSION=latest
 addons:
   apt:
@@ -12,7 +12,7 @@ jobs:
   include:
     - name: Python 3.8 on Xenial Linux
       python: 3.8           # this works for Linux but is ignored on macOS or Windows
-      script: pytest --cov=translater --verbose tests/
+      script: pytest --cov=trnslator --verbose tests/
       after_success:
         - coverage report -m
         - coveralls
@@ -20,11 +20,11 @@ jobs:
       os: osx
       osx_image: xcode11.2
       language: objective-c
-      script: pytest --cov=translater --verbose tests/
+      script: pytest --cov=trnslator --verbose tests/
     - name: "Python 3.8 on Windows"
       os: windows           # Windows 10.0.17134 N/A Build 17134
       language: shell       # 'language: python' is an error on Travis CI Windows
-      script: pytest --cov=translater --verbose tests/
+      script: pytest --cov=trnslator --verbose tests/
     - stage: deploy
       script: echo "Deploying to PyPi and GitHub releases ..."
       deploy:
@@ -34,7 +34,7 @@ jobs:
           secure: Ys6dmv5j3DG8jelwyqkczfnr87kihTgV0bnNVnGrag/7Pnobory1L0zh9pUc02gOiZzNrPFMb0hBQ/kEfYwKVFobRTwsbOpPAJQD+doIaf2KTQ42yUK2zPW0SqpwJMcGF1BfkgRh9J1omsWlfU+D7Xf5q47ksyQtO7A8GGFyc2mk2/4uqH4f8MQLWpU8zyUmgCTbI7RplCQsaa3tySwi7Y8bBEZwWV5jleohOz0tOPc74dWRJi4r0maeCbWa64hp1W7lQq2ZjIc//66a9RnauIdNd9Z10APbIcWQnyB30j6tZKIbkgouzxZ3IrBlby6raxXbpfviH1hyXII/Ppfv65jJX2VPX/VU0tPqto/DTR8YZ1IbUrAD+Zndxt/ZsvsxhHw610/GKDrQBJkcEiVsKhzptYWrElvNTd2enJkFbIrb2r1u2+YzktsHJd9sEMlAqP72JHRdrvT3cPD1VRmqr61xRJBvnB6rJwwctEHtVKwunhTWEW+NA0Sdp/Qa8Ak1vGl1LBlqAbcDNdizt4DC+x4N6BtjAtrNrcw3kj3m8fIhaXNQeUapwOHMRVSzAtkBDGbU6jbkgTVVMmXNEuoAvReXAIFJe+tn8kemRMlY94vpRotfBSUOQEVETL0luMgIL8Zyl2FHLFxruDm9Ea1wJAUOldStbdVr/AvfoAXjM9k=
         on:
           distributions: sdist bdist_wheel
-          repo: louisleroy5/translater
+          repo: louisleroy5/trnslator
           branch: master
           tags: true
 before_install:

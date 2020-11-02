@@ -3,11 +3,11 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-translater |version|
+trnslator |version|
 ====================
 
-`translater` is a Python package designed with the objective of helping building energy modelers and researchers
-maintain collections of building archetypes. `translater` depends on `eppy`_ for EnergyPlus models and makes use of
+`trnslator` is a Python package designed with the objective of helping building energy modelers and researchers
+maintain collections of building archetypes. `trnslator` depends on `eppy`_ for EnergyPlus models and makes use of
 great packages such as `pandas`_ for data structure processing and `tsam`_ for time series aggregation.
 
 .. _eppy: https://eppy.readthedocs.io/
@@ -18,10 +18,10 @@ Description
 ===========
 
 As building energy modelers ourselves, we found it was sometimes difficult to use scripting language to retrieve,
-modify, simulate and analyze Building Energy Models (BEM). This is why `translater` was created. We built a package
+modify, simulate and analyze Building Energy Models (BEM). This is why `trnslator` was created. We built a package
 able to an EnergyPlus file to `TRNBuild <http://sel.me.wisc.edu/trnsys/index.html>`_ models (shout out to TRNSYS users!)
 
-`translater` also features a :ref:`Command Line Interface (CLI)<Command reference>` which means that users can execute
+`trnslator` also features a :ref:`Command Line Interface (CLI)<Command reference>` which means that users can execute
 commands in the terminal instead of writing a python script. In addition, we believe reproducible research through
 Jupyter Notebooks, for instance, is the way foreword. Therefore, all the modules are discoverable and can be imported
 independently.

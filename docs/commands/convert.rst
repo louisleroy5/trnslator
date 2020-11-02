@@ -1,5 +1,5 @@
 
 
-.. click:: translater:convert
-   :prog: translater convert
+.. click:: trnslator:convert
+   :prog: trnslator convert
    :show-nested:

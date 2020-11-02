@@ -2,7 +2,7 @@
 # Module: utils.py
 # Description: Utility functions for configuration, logging
 # License: MIT, see full license in LICENSE.txt
-# Web: https://github.com/louisleroy5/translater
+# Web: https://github.com/louisleroy5/trnslator
 ################################################################################
 # OSMnx
 #
@@ -32,8 +32,8 @@ import pandas as pd
 from pandas.io.json import json_normalize
 from path import Path
 
-from translater import settings
-from translater.settings import ep_version
+from trnslator import settings
+from trnslator.settings import ep_version
 
 
 def config(
@@ -62,7 +62,7 @@ def config(
         imgs_folder (str): where to save figures.
         cache_folder (str): where to save the simulation results.
         use_cache (bool): if True, use a local cache to save/retrieve many of
-            translater outputs such as EnergyPlus simulation results. This can
+            trnslator outputs such as EnergyPlus simulation results. This can
             save a lot of time by not calling the simulation and DataPortal APIs
             repetitively for the same requests.
         log_file (bool): if true, save log output to a log file in logs_folder.
@@ -98,7 +98,7 @@ def config(
 
     # if logging is turned on, log that we are configured
     if settings.log_file or settings.log_console:
-        log("Configured translater")
+        log("Configured trnslator")
 
 
 def validate_epversion(ep_version):
@@ -660,7 +660,7 @@ def get_eplus_dirs(version=ep_version):
 
 def warn_if_not_compatible():
     """Checks if an EnergyPlus install is detected. If the latest version
-    detected is higher than the one specified by translater, a warning is also
+    detected is higher than the one specified by trnslator, a warning is also
     raised.
     """
     eplus_homes = get_eplus_basedirs()
@@ -668,7 +668,7 @@ def warn_if_not_compatible():
     if not eplus_homes:
         warnings.warn(
             "No installation of EnergyPlus could be detected on this "
-            "machine. Please install EnergyPlus from https://energyplus.net before using translater"
+            "machine. Please install EnergyPlus from https://energyplus.net before using trnslator"
         )
     if len(eplus_homes) > 1:
         # more than one installs
@@ -691,7 +691,7 @@ def get_eplus_basedirs():
         return eplus_homes
     else:
         warnings.warn(
-            "translater is not compatible with %s. It is only compatible "
+            "trnslator is not compatible with %s. It is only compatible "
             "with Windows, Linux or MacOs" % platform.system()
         )
 
@@ -802,7 +802,7 @@ def parallel_process(in_dict, function, processors=-1, use_kwargs=True):
     """A parallel version of the map function with a progress btr.
 
     Examples:
-        >>> import translater as tr
+        >>> import trnslator as tr
         >>> files = ['tests/input_data/problematic/nat_ventilation_SAMPLE0.idf',
         >>>          'tests/input_data/regular/5ZoneNightVent1.idf']
         >>> wf = 'tests/input_data/CAN_PQ_Montreal.Intl.AP.716270_CWEC.epw'

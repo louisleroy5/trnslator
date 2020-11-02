@@ -1,7 +1,7 @@
 import pandas as pd
 from path import Path
 
-from translater import config, run_eplus, parallel_process
+from trnslator import config, run_eplus, parallel_process
 
 config(cache_folder="../../tests/.temp/cache", use_cache=True, log_console=True)
 
