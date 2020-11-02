@@ -42,7 +42,7 @@ in case). You should see something like this:
 
 .. code-block:: doscon
 
-    C:\Users\translater>conda list
+    C:\Users\trnslator>conda list
     # packages in environment at C:\ProgramData\Miniconda3:
     #
     # Name                    Version                   Build  Channel
@@ -57,7 +57,7 @@ in case). You should see something like this:
 Install EnergyPlus & Conversion Programs
 ........................................
 
-EnergyPlus is a prerequisite of translater. It must be installed beforehand. Moreover, translater contains routines that
+EnergyPlus is a prerequisite of trnslator. It must be installed beforehand. Moreover, trnslator contains routines that
 may download IDF components that are coded in earlier versions of EnergyPlus (e.g., 7.1). For this reason, users should
 also download the `supplementary conversion programs`_, and install the content in the EnergyPlus installation folder:
 
@@ -79,7 +79,7 @@ Copy the whole code block below in Command Prompt and Hit :guilabel:`&Enter:⏎`
     cd aef233396167e0f961df3d62a193573e
     install_eplus_script.cmd
 
-To install *translater*, follow the steps detailed below in `Installing using pip`_
+To install *trnslator*, follow the steps detailed below in `Installing using pip`_
 
 Installing using ``pip``
 ------------------------
@@ -89,25 +89,25 @@ highly recommended), then simply install using the following command in the term
 
 .. code-block:: shell
 
-    pip install translater
+    pip install trnslator
 
 .. hint::
 
-    If you encounter an issue during the installation of translater using ``pip``, you can try
+    If you encounter an issue during the installation of trnslator using ``pip``, you can try
     out `Installing using conda (Anaconda)`_ instead.
 
 
 Installation within a Virtual Environment
 -----------------------------------------
 
-It is highly recommended to use/install *translater* on a fresh python virtual environment. If you have any trouble
-with the installation above, try installing translater in a new, clean `virtual environment`_ using venv or conda. Note
+It is highly recommended to use/install *trnslator* on a fresh python virtual environment. If you have any trouble
+with the installation above, try installing trnslator in a new, clean `virtual environment`_ using venv or conda. Note
 that this pacakge was tested with python 3.6:
 
 .. code-block:: shell
 
-    python3 -m venv translater
-    source translater/bin/activate
+    python3 -m venv trnslator
+    source trnslator/bin/activate
 
 Activating the virtual environment will change your shell’s prompt to show what virtual environment you’re using, and
 modify the environment so that running python will get you that particular version and installation of Python. For
@@ -115,33 +115,33 @@ example:
 
 .. code-block:: shell
 
-    $ source translater/bin/activate
-    (translater) $ python
+    $ source trnslator/bin/activate
+    (trnslator) $ python
     Python 3.5.1 (default, May  6 2016, 10:59:36)
     ...
     >>> import sys
     >>> sys.path
     ['', '/usr/local/lib/python35.zip', ...,
-    '~/envs/translater/lib/python3.5/site-packages']
+    '~/envs/trnslator/lib/python3.5/site-packages']
     >>>
 
-Then you can install translater in this freshly created environment:
+Then you can install trnslator in this freshly created environment:
 
 .. code-block:: shell
 
-    pip install translater
+    pip install trnslator
 
 To use the new environment inside a `jupyter notebook`_, we recommend using the steps described by `Angelo
 Basile`_:
 
 .. code-block:: shell
 
-   source translater/bin/activate
+   source trnslator/bin/activate
    pip install ipykernel
-   ipython kernel install --user --name=translater
+   ipython kernel install --user --name=trnslator
 
 Next time you `start a jupyter notebook`_, you will have the option to choose the *kernel* corresponding to your
-project, *translater* in this case.
+project, *trnslator* in this case.
 
 .. figure:: images/20181211121922.png
    :alt: choosing the correct kernel in a jupyter notebook
@@ -150,7 +150,7 @@ project, *translater* in this case.
 
    choosing the correct kernel in a jupyter notebook.
    In the *kernel* menu, select *Change Kernel*
-   and select the appropriate virtual env created earlier (*translater* in this case).
+   and select the appropriate virtual env created earlier (*trnslator* in this case).
 
 
 Installing using ``conda`` (Anaconda)
@@ -158,9 +158,9 @@ Installing using ``conda`` (Anaconda)
 
 .. hint::
 
-    If you encounter package dependency errors while installing `translater` using pip, you can use conda instead.
+    If you encounter package dependency errors while installing `trnslator` using pip, you can use conda instead.
 
-Installing with conda is similar to pip. The following workflow creates a new virtual environment (named translater)
+Installing with conda is similar to pip. The following workflow creates a new virtual environment (named trnslator)
 which contains the required dependencies. It then installs the package using pip. You will need to download the
 `environment.yml`_ file from the github repository. For the following code to work, first change the working
 directory to the location of the downloaded `environment.yml` file. Here we use the `conda env update` method which
@@ -169,9 +169,9 @@ will work well to create a new environment using a specific dependency file in o
 .. code-block:: shell
 
    conda update -n base conda
-   conda env update -n translater -f environment.yml
-   conda activate translater
-   pip install translater
+   conda env update -n trnslator -f environment.yml
+   conda activate trnslator
+   pip install trnslator
 
 .. _start a jupyter notebook: https://jupyter.readthedocs.io/en/latest/running.html#starting-the-notebook-server
 .. _jupyter notebook: https://jupyter-notebook.readthedocs.io/en/stable/#
@@ -182,4 +182,4 @@ will work well to create a new environment using a specific dependency file in o
 .. _download: https://github.com/NREL/EnergyPlus/releases/tag/v9.2.0
 .. _supplementary conversion programs: http://energyplus.helpserve.com/Knowledgebase/List/Index/46/converting-older-version-files
 .. _script: https://gist.github.com/samuelduchesne/aef233396167e0f961df3d62a193573e
-.. _environment.yml: https://github.com/louisleroy5/translater/blob/master/environment.yml
+.. _environment.yml: https://github.com/louisleroy5/trnslator/blob/master/environment.yml

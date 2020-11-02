@@ -6,7 +6,7 @@ MacOs Catalina Compatibility
 
 With the release of MacOs Catalina, Apple requires apps to be signed and/or notarized. This helps users make sure they
 open apps from trusted developers. It appears that the transition files that are needed to upgrade older IDF files to
-the latest version of EnergyPlus are not signed. Thus, users using translater on the MacOs platform might encounter an
+the latest version of EnergyPlus are not signed. Thus, users using trnslator on the MacOs platform might encounter an
 error of this type: "Transition cannot be opened because the developer cannot be verified". (see `Missing transition
 programs`_ for more details on downloading and installing older transition programs).
 

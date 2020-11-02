@@ -1,8 +1,8 @@
 import matplotlib.pyplot as plt
 from pandas import DataFrame, Series, DatetimeIndex
 
-from translater import EnergySeries, settings
-from translater.energyseries import plot_energyseries_map, save_and_show
+from trnslator import EnergySeries, settings
+from trnslator.energyseries import plot_energyseries_map, save_and_show
 
 
 class EnergyDataFrame(DataFrame):

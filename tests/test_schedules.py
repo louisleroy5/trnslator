@@ -2,7 +2,7 @@ import os
 
 import pytest
 
-from translater import (
+from trnslator import (
     Schedule,
     load_idf,
     copy_file,

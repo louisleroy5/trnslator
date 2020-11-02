@@ -1,4 +1,4 @@
-{% set name = "translater" %}
+{% set name = "trnslator" %}
 {% set version = "1.0.1" %}
 {% set sha256 = "3e97f799769469412b12b8d71cc2342d0c93c9f6ea4ca36366c415eef9fbe344" %}
 
@@ -34,18 +34,18 @@ requirements:
 
 test:
   imports:
-    - translater
+    - trnslator
 
 about:
-  home: https://github.com/louisleroy5/translater
+  home: https://github.com/louisleroy5/trnslator
   license: MIT
   license_family: MIT
   license_file: LICENSE.txt
   summary: 'Convert IDF file (EnergyPlus) to BUI file (TRNBuild)'
   description: |
-    translater is a Python package.
-  doc_url: https://translater.readthedocs.io
-  dev_url: https://github.com/louisleroy5/translater
+    trnslator is a Python package.
+  doc_url: https://trnslator.readthedocs.io
+  dev_url: https://github.com/louisleroy5/trnslator
 
 extra:
   recipe-maintainers:

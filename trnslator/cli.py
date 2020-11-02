@@ -1,8 +1,8 @@
 ################################################################################
 # Module: cli.py
-# Description: Implements translater functions as Command Line Interfaces
+# Description: Implements trnslator functions as Command Line Interfaces
 # License: MIT, see full license in LICENSE.txt
-# Web: https://github.com/louisleroy5/translater
+# Web: https://github.com/louisleroy5/trnslator
 ################################################################################
 import os
 import time
@@ -14,7 +14,7 @@ from path import Path
 import click
 from tabulate import tabulate
 
-from translater import (
+from trnslator import (
     settings,
     cd,
     load_idf,
@@ -83,7 +83,7 @@ pass_config = click.make_pass_decorator(CliConfig, ensure=True)
     "-c/-nc",
     "--use-cache/--no-cache",
     help="Use a local cache to save/retrieve many of "
-    "translater outputs such as EnergyPlus simulation results",
+    "trnslator outputs such as EnergyPlus simulation results",
     default=True,
 )
 @click.option(
@@ -138,10 +138,10 @@ def cli(
     trnsys_default_folder,
     ep_version,
 ):
-    """translater: Retrieve, construct, simulate, convert and analyse building
+    """trnslator: Retrieve, construct, simulate, convert and analyse building
     simulation templates
 
-    Visit translater.readthedocs.io for the online documentation.
+    Visit trnslator.readthedocs.io for the online documentation.
     """
     cli_config.data_folder = data_folder
     cli_config.logs_folder = logs_folder
