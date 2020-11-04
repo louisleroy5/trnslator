@@ -75,7 +75,7 @@ def converttesteasy(request):
     template_dir = os.path.join("trnslator", "ressources")
     window_filepath = os.path.join(template_dir, window_file)
     template_d18 = "tests/input_data/trnsys/NewFileTemplate.d18"
-    trnsidf_exe = "docker/trnsidf/trnsidf.exe"  # 'docker/trnsidf/trnsidf.exe'
+    trnsidf_exe = "/Users/leroylouis/Documents/Poly/trnsidf.exe"  # 'docker/trnsidf/trnsidf.exe'
 
     # prepare args (key=value). Key is a unique id for the runs (here the
     # file basename is used). Value is a dict of the function arguments
@@ -773,7 +773,7 @@ def converttest(request):
     template_dir = os.path.join("trnslator", "ressources")
     window_filepath = os.path.join(template_dir, window_file)
     template_d18 = "tests/input_data/trnsys/NewFileTemplate.d18"
-    trnsidf_exe = "docker/trnsidf/trnsidf.exe"  # 'docker/trnsidf/trnsidf.exe'
+    trnsidf_exe = "/Users/leroylouis/Documents/Poly/trnsidf.exe"  # 'docker/trnsidf/trnsidf.exe'
 
     # prepare args (key=value). Key is a unique id for the runs (here the
     # file basename is used). Value is a dict of the function arguments
@@ -1189,7 +1189,7 @@ class TestTrnBuild:
             weather_file=weather_file,
             window_lib=window_filepath,
             template="tests/input_data/trnsys/NewFileTemplate.d18",
-            trnsidf_exe="docker/trnsidf/trnsidf.exe",
+            trnsidf_exe="/Users/leroylouis/Documents/Poly/trnsidf.exe",
             **kwargs_dict
         )
 
@@ -1243,7 +1243,7 @@ class TestTrnBuild:
                 idf_file=os.path.join(file_upper_path, file),
                 weather_file=weather_file,
                 template="tests/input_data/trnsys/NewFileTemplate.d18",
-                trnsidf_exe="docker/trnsidf/trnsidf.exe",
+                trnsidf_exe="/Users/leroylouis/Documents/Poly/trnsidf.exe",
             )
             for file in files
         }
@@ -1269,16 +1269,11 @@ class TestTrnBuild:
 
     @pytest.mark.darwin
     @pytest.mark.linux
-    @pytest.mark.xfail(
-        not Path("docker/trnsidf/trnsidf.exe").exists(),
-        reason="xfail since trnsidf.exe is not installed. This test can work if the "
-        "trnsidf.exe is copied in ./docker/trnsidf",
-    )
     def test_trnbuild_idf_darwin_or_linux(self, config):
         # Paths to T3D, B18 template and trnsidf.exe files
         idf_file = "tests/input_data/trnsys/Building.idf"
         template = "tests/input_data/trnsys/NewFileTemplate.d18"
-        trnsidf_exe = "docker/trnsidf/trnsidf.exe"
+        trnsidf_exe = "/Users/leroylouis/Documents/Poly/trnsidf.exe"
 
         # Convert T3D file to BUI file
         res = trnbuild_idf(
@@ -1337,7 +1332,7 @@ def test_trnbuild_from_simple_idf(config):
         weather_file=weather_file,
         window_lib=window_filepath,
         template="tests/input_data/trnsys/NewFileTemplate.d18",
-        trnsidf_exe="docker/trnsidf/trnsidf.exe",
+        trnsidf_exe="/Users/leroylouis/Documents/Poly/trnsidf.exe",
         schedule_as_input=True,
         **kwargs_dict
     )
