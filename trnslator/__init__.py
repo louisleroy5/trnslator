@@ -6,7 +6,7 @@
 ################################################################################
 
 # Version of the package
-__version__ = "1.1.0"
+__version__ = "1.1.1"
 
 # warn if a newer version of trnslator is available
 from outdated import warn_if_outdated
